@@ -22,35 +22,40 @@ Execute Django admin and create details for 10 books
 # admin.py
 ```
 from django.contrib import admin
-from.models import Employee, EmployeeAdmin
-admin.site.register(Employee, EmployeeAdmin)
+
+from .models import Bankloan,BankloanAdmin
+
+admin.site.register(Bankloan,BankloanAdmin)
 ```
 # models.py
 ```
+
 from django.db import models
 
 from django.contrib import admin
 
-class Employee (models.Model):
+class Bankloan(models.Model):
 
-    eid=models.CharField(max_length=20, help_text="Employee ID")
+  date_of_birth=models.DateField(default=0)
 
-    name=models.CharField(max_length=100)
+  name=models.CharField(max_length=70,default=0)
 
-    salary=models. IntegerField()
+  age=models.IntegerField(default=0)
 
-    age=models.IntegerField()
+  customerid=models.IntegerField(primary_key="customerid",default=0) 
 
-    email=models.EmailField()
+  mail=models.CharField(max_length=70,default=0)
 
-class EmployeeAdmin(admin.ModelAdmin):
 
-    list_display=( 'eid', 'name', 'salary', 'age','email')
+class BankloanAdmin(admin.ModelAdmin):
+ list_display=('date_of_birth','name','age','customerid','mail')
 ```
 
 # OUTPUT
+![Screenshot 2024-12-16 100359](https://github.com/user-attachments/assets/24189cf5-158b-47b7-b8e6-026662ff729f)
 
-![Screenshot 2024-12-06 113307](https://github.com/user-attachments/assets/57378ad5-2cfb-46b6-a541-47754cacaa0f)
+![image](https://github.com/user-attachments/assets/1697ea1d-96c0-446c-8874-46e19069f19d)
+
 
 
 # RESULT
